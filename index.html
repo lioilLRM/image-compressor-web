@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片压缩工具 - 在线免费压缩PNG/JPG图片</title>
+    <!-- 添加 SEO 相关的 meta 标签 -->
+    <meta name="description" content="免费在线图片压缩工具，支持PNG、JPG格式，快速压缩图片大小，保持图片质量。">
+    <meta name="keywords" content="图片压缩,在线压缩,PNG压缩,JPG压缩,图片优化">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 主容器 -->
+    <div class="container">
+        <!-- 添加标题区域 -->
+        <header class="header">
+            <h1 class="main-title">图片压缩工具</h1>
+            <p class="sub-title">简单快速地压缩您的图片，支持PNG、JPG格式</p>
+        </header>
+
+        <!-- 上传区域 -->
+        <div class="upload-area" id="uploadArea">
+            <input type="file" id="imageInput" accept=".jpg,.jpeg,.png" multiple hidden>
+            <label for="imageInput" class="upload-button">
+                <span class="icon">+</span>
+                <span class="text">点击或拖放图片到这里</span>
+                <span class="support-text">支持多张 PNG、JPG 格式图片</span>
+            </label>
+            <!-- 添加拖放提示层 -->
+            <div class="drag-overlay" id="dragOverlay">
+                <div class="drag-message">
+                    <span class="icon">📥</span>
+                    <span>松开鼠标上传图片</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 在 preview-container 之前添加加载动画容器 -->
+        <div class="loading-container" id="loadingContainer" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">正在处理图片...</p>
+        </div>
+
+        <!-- 预览和控制区域 -->
+        <div class="preview-container" style="display: none;">
+            <div class="preview-section">
+                <div class="preview-box">
+                    <h3>原图</h3>
+                    <div class="image-container">
+                        <img id="originalImage" src="" alt="原图预览">
+                    </div>
+                    <div class="file-info">
+                        <span>原始大小：</span>
+                        <span id="originalSize">0 KB</span>
+                    </div>
+                </div>
+                
+                <div class="preview-box">
+                    <h3>压缩后</h3>
+                    <div class="image-container">
+                        <img id="compressedImage" src="" alt="压缩后预览">
+                    </div>
+                    <div class="file-info">
+                        <span>压缩后大小：</span>
+                        <span id="compressedSize">0 KB</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 压缩控制区域 -->
+            <div class="control-section">
+                <div class="quality-control">
+                    <label for="qualitySlider">压缩质量：<span id="qualityValue">80%</span></label>
+                    <input type="range" id="qualitySlider" min="1" max="100" value="80">
+                </div>
+                <button id="downloadBtn" class="download-button">下载压缩后的图片</button>
+            </div>
+        </div>
+
+        <!-- 添加图片列表容器 -->
+        <div class="images-list" id="imagesList" style="display: none;">
+            <h3 class="images-list-title">待处理图片列表</h3>
+            <div class="images-grid" id="imagesGrid">
+                <!-- 图片项会动态添加到这里 -->
+            </div>
+            <div class="batch-controls">
+                <div class="quality-control">
+                    <label for="batchQualitySlider">批量压缩质量：<span id="batchQualityValue">80%</span></label>
+                    <input type="range" id="batchQualitySlider" min="1" max="100" value="80">
+                </div>
+                <button id="batchCompressBtn" class="primary-button">批量压缩</button>
+                <button id="batchDownloadBtn" class="secondary-button">批量下载</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html> 
